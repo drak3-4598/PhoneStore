@@ -8,12 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>PhoneStore.it - Aggiungi Prodotto</title>
+    <title>PhoneStore </title>
     <%@include file="imports.jsp"%>
 </head>
 <body>
 <%@include file="nav.jsp"%>
 <!-- Default form contact -->
+<div class="container mt-4 mb-auto">
 <form class="text-center border border-light p-5" action="addProduct" method="POST">
 
     <p class="h4 mb-4">Inserisci Prodotto</p>
@@ -57,6 +58,7 @@
     <input class="btn btn-info btn-block" id = "btn" type="submit"></input>
 
 </form>
+</div>
 <!--Aggiungere script per evitare inserimenti errati-->
 <script>
     $("#btn").submit(function (event) {

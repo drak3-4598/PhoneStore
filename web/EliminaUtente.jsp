@@ -10,11 +10,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <TITLE>PhoneStore</TITLE>
     <%@include file="imports.jsp"%>
 </head>
 <body>
 <%@include file="nav.jsp"%>
 <!--Table-->
+
 <form action="EliminaUtenteServlet" method="post">
     <table id="tablePreview" class="table table-sm">
         <!--Table head-->
@@ -51,6 +53,7 @@
     } %>
 
 </form>
+
 <%@include file="footer.jsp"%>
 </body>
 <script src="js/EliminaUt.js"></script>

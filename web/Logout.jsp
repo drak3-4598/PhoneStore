@@ -11,10 +11,10 @@
 <head>
     <%@include file="imports.jsp"%>
 
-<title>Logout</title>
 </head>
 <body>
 <% session.invalidate(); %>
 <p>Il logout è andato a buon fine!</p>
+
 </body>
 </html>
