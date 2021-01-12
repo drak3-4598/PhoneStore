@@ -3,7 +3,7 @@
 <head>
   <!-- meta -->
 <%@include file="imports.jsp"%>
-  <title> Phone Store</title>
+  <title> PhoneStore</title>
 </head>
 <body>
 

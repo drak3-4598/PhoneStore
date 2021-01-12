@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Phone store.it - Admin</title>
+    <title>PhoneStore - Admin</title>
     <%@include file="imports.jsp"%>
 </head>
 <body>

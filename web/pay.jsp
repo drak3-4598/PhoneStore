@@ -13,10 +13,10 @@
 </head>
 <%@include file="nav.jsp"%>
 <body>
+<div class="container mt-5 mb-5 " style="margin: auto;width: 50%;border: 3px solid black;padding: 10px;">
 <div class="contServGeneral siteFont js_servPay" style="padding-right:515px;);">
 
     <h3 class="titolo siteFont2">Paga facile</h3>
-
     <ul class="listYellowCirc">
         <li>Tanti modi di pagare per venire incontro alle tue esigenze*</li>
         <li><strong>Online</strong> con Carta di credito, PayPal, Bonifico bancario*, Apple Pay, Tinaba e Oney Bank*</li>
@@ -26,6 +26,11 @@
         <li>Con carta di credito in <strong>3 o 4 rate</strong> con Oney. Semplice, in pochi click, risposta immediata</li>
         <li><strong>Sicuro</strong> al 100%</li>
     </ul>
+    <br>
+    <img src="img/SecurePayments.png">
+    <br>
+    <br>
+    </div>
 </div>
 </body>
 <%@include file="footer.jsp"%>

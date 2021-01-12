@@ -9,14 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>PhoneStore </title>
     <%@include file="imports.jsp"%>
 </head>
 <body>
 <%@include file="nav.jsp"%>
+<div class="container-fluid mt-4 mb mb-auto">
 <!--Table-->
-<form action="EliminaProdottoServlet" method="post">
-    <table id="tablePreview" class="table table-sm">
+<form action="EliminaProdottoServlet" method="post" class="mt-2">
+    <table id="tablePreview" class="table table-sm table-bordered">
         <!--Table head-->
         <thead class="thead-dark">
             <tr id="1">
@@ -58,6 +59,8 @@
 
 
 </form>
+</div>
+
 <%@include file="footer.jsp"%>
 </body>
 <script src="js/EliminaPr.js"></script>

@@ -6,7 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="imports.jsp"%>
+<html>
+<head>
+    <%@include file="imports.jsp"%>
+    <TITLE>PhoneStore.it - Cerca</TITLE>
+</head>
+<body>
 
 <%@include file="nav.jsp"%>
 <%
@@ -36,8 +41,11 @@
    request.setAttribute("url",url);
 %>
 <div id="main"class="mb-1"></div>
+
 <%@include file = "footer.jsp" %>
+
 <script src="js/add.js"></script>
+
 <script>$.getJSON("prova${url}", function (json) {
 
     $.each(json, function() {
