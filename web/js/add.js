@@ -10,8 +10,48 @@ function constractCard(obj){
     let h3 = $('<h3>')
     let h1 = $('<h1 class="my-4">')
     let p = $('<p>')
-    let btn = $('<a class="btn btn-primary">Visualizza</a>')
+    let btn = $(' <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-target="#exampleModal">Visualizza</button>')
 
+    let modal = $('<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">')
+    let modaldial = $(' <div class="modal-dialog modal-side modal-top-right" role="document">')
+    let modalcont = $('<div class="modal-content">')
+    let modalhead = $('<div class="modal-header">')
+    let modalH5 = $('<h5>')
+    let modalclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')
+    let modalbody = $('<div class="modal-body">')
+    let select = $('<select class="form-select" aria-label="Default select example">')
+    let option = $('<option selected> - Seleziona la quantità - </option>')
+    let option2 = $('<option value="1"></option>')
+    let modalfooter = $('<div class="modal-footer">')
+    let modalbtnclose = $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>')
+    let modaladd = $('<button type="button" class="btn btn-primary" ><i class="fas fa-shopping-cart"></i> Aggiungi al carrello</button>')
+    let p1 = $('<p id="qt">Q.tà disponibile:</p>')
+
+    /*Append Modal*/
+    $(modalH5).html(obj.nome)
+    $(p1).html(obj.quantita)
+
+
+    $(select).append(option)
+
+
+    $(modalhead).append(modalH5)
+    $(modalhead).append(modalclose)
+
+    $(modalbody).append(p1)
+    $(modalbody).append(select)
+
+    $(modalfooter).append(modalbtnclose)
+    $(modalfooter).append(modaladd)
+
+    $(modalcont).append(modalhead)
+    $(modalcont).append(modalbody)
+    $(modalcont).append(modalfooter)
+
+    $(modaldial).append(modalcont)
+    $(modal).append(modaldial)
+
+    /*ProductCard*/
     $(p).html(obj.descrizione)
     $(h2).html(obj.nome)
     $(img).attr("src", obj.foto)
@@ -19,6 +59,7 @@ function constractCard(obj){
     $(div).append(h2)
     $(div).append(p)
     $(div).append(btn)
+    $(div).append(modal)
 
     $(a).append(img)
 
@@ -29,6 +70,7 @@ function constractCard(obj){
 
     $(container).append(h1)
     $(container).append(row)
+    $(container).append(modal)
 
     return container;
 

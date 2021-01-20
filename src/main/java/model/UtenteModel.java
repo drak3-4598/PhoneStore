@@ -24,18 +24,18 @@ public class UtenteModel implements DAOInterface<String,Utente> {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
-        String insertSQL = "INSERT INTO " + UtenteModel.TABLE_NAME +  " (codiceUtente, nome, cognome, indirizzo, email, password) VALUES (?,?,?,?,?,?)" ;
+        String insertSQL = "INSERT INTO " + UtenteModel.TABLE_NAME +  " (nome, cognome, indirizzo, email, password) VALUES (?,?,?,?,?)";
 
         try{
             connection = dmcp.getConnection();
             preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setInt(1,utente.getCodiceUtente());
-            preparedStatement.setString(2, utente.getNome());
-            preparedStatement.setString(3, utente.getCognome());
-            preparedStatement.setString(4, utente.getIndirizzo());
-            preparedStatement.setString(5, utente.getEmail());
-            preparedStatement.setString(6, utente.getPassword());
+            preparedStatement.setString(1, utente.getNome());
+            preparedStatement.setString(2, utente.getCognome());
+            preparedStatement.setString(3, utente.getIndirizzo());
+            preparedStatement.setString(4, utente.getEmail());
+            preparedStatement.setString(5, utente.getPassword());
             preparedStatement.executeUpdate();
+            connection.commit();
         }finally {
             try {
                 if (preparedStatement != null)
@@ -184,6 +184,7 @@ public class UtenteModel implements DAOInterface<String,Utente> {
 
 
             result = ps.executeUpdate();
+            connection.commit();
         }finally {
             try {
                 if (ps != null)

@@ -1,6 +1,6 @@
 function constractCard(obj){
 
-    let tr = $('<tr id="2">')
+    let tr = $('<tr>')
 
     let codice = $('<th scope="row">')
     let marca = $('<td id="marca">')
@@ -8,8 +8,8 @@ function constractCard(obj){
     let descrizione = $('<td id="descrizione">')
     let prezzo = $('<td id="prezzo">')
     let qt = $('<td id="qt">')
-    let btn = $('<td><button type="submit">Elimina</button></td>')
-
+    let container = $('<td>')
+    let btn = $('<button class="btn btn-primary btn-sm">Elimina</button>')
 
     $(codice).html(obj.codiceTel)
     $(marca).html(obj.marca)
@@ -17,6 +17,8 @@ function constractCard(obj){
     $(descrizione).html(obj.descrizione)
     $(prezzo).html(obj.prezzo)
     $(qt).html(obj.quantita)
+    $(btn).attr("id",obj.codiceTel)
+    $(btn).click(listener)
 
 
     $(tr).append(codice)
@@ -25,8 +27,20 @@ function constractCard(obj){
     $(tr).append(descrizione)
     $(tr).append(prezzo)
     $(tr).append(qt)
-    $(tr).append(btn)
+    $(container).append(btn)
+    $(tr).append(container)
 
     return tr;
 
+}
+
+function listener(){
+    let btn = this;
+    $.post("EliminaProdottoServlet",{codiceTel : this.id} , function () {
+        alert("Prodotto eliminato!")
+        let td = $(btn).parent()
+        let tr = $(td).parent()
+        console.log($(td), $(tr))
+        $(tr).remove()
+    })
 }

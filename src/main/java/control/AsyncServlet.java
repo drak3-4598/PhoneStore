@@ -4,8 +4,6 @@ import com.google.gson.GsonBuilder;
 import model.Prodotto;
 import model.ProdottoModel;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +13,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/prova")
-public class AsincServlet extends HttpServlet {
+public class AsyncServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException {
 
         ProdottoModel p = new ProdottoModel();
         List<Prodotto> list = null;

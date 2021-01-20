@@ -53,7 +53,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="">Profilo</a>
                 <a class="dropdown-item" href="">I miei ordini</a>
-                <a class="dropdown-item" href="Logout.jsp">Logout</a>
+                <a class="dropdown-item" href="LogoutServlet">Logout</a>
             </div>
         </li>
         <a class="navbar-brand" href="Carrello.jsp">
@@ -68,7 +68,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">Il mio Account</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="Admin.jsp">Operazioni</a>
-                    <a class="dropdown-item" href="Logout.jsp">Logout</a>
+                    <a class="dropdown-item" href="LogoutServlet">Logout</a>
                 </div>
             </li>
         </ul>
@@ -76,7 +76,7 @@
         }else {
         %>
         <a class="navbar-brand" href="Login.jsp">
-            <img src="img/guest-32.png" width="30" height="30" class="d-inline-block align-top" alt=""> User</a>
+            <img src="img/guest-32.png" width="30" height="30" class="d-inline-block align-top" alt=""> Accedi</a>
         <a class="navbar-brand" href="Carrello.jsp">
             <img src="img/cart-64.png" width="30" height="30" class="d-inline-block align-top" alt=""> Carrello </a>
         <%}%>

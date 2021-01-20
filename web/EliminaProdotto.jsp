@@ -9,18 +9,16 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>PhoneStore </title>
     <%@include file="imports.jsp"%>
 </head>
 <body>
 <%@include file="nav.jsp"%>
-<div class="container-fluid mt-4 mb mb-auto">
 <!--Table-->
-<form action="EliminaProdottoServlet" method="post" class="mt-2">
+<div class="container-fluid mt-4 mb mb-auto">
     <table id="tablePreview" class="table table-sm table-bordered">
         <!--Table head-->
         <thead class="thead-dark">
-            <tr id="1">
+            <tr>
                 <th>#</th>
                 <th>Marca</th>
                 <th>Nome</th>
@@ -33,36 +31,14 @@
         <!--Table head-->
         <!--Table body-->
         <tbody id="main">
-            <%
-                Object obj = request.getAttribute("prodotto");
-                List<Prodotto> lst = null;
-                if (obj instanceof List)
-                    lst = (List<Prodotto>) obj;
 
-                if(lst != null ? !lst.isEmpty() : false){
-                    for (Prodotto c : lst) { %>
-            <tr id="2">
-                <th scope="row"><%c.getCodiceTel();%></th>
-                <td id="marca"><%c.getMarca();%></td>
-                <td id="nome"><%c.getNome();%></td>
-                <td id="descrizione"><%c.getDescrizione();%></td>
-                <td id="prezzo"><%c.getPrezzo();%></td>
-                <td id="qt"><%c.getQuantita();%></td>
-                <td><button type="submit">Elimina</button></td>
-            </tr>
-            <%}
-            } %>
         </tbody>
         <!--Table body-->
     </table>
     <!--Table-->
-
-
-</form>
 </div>
 
 <%@include file="footer.jsp"%>
-</body>
 <script src="js/EliminaPr.js"></script>
 <script>$.getJSON("prova", function (json) {
 
@@ -71,5 +47,8 @@
 
     })
 })</script>
+</body>
+
+
 
 </html>

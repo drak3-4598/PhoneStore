@@ -63,7 +63,6 @@ public class ProdottoModel implements DAOInterface<Integer, Prodotto>{
         try{
             connection = dmcp.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
-
             preparedStatement.setInt(1, key);
             result = preparedStatement.executeUpdate();
             connection.commit();
@@ -221,6 +220,7 @@ public class ProdottoModel implements DAOInterface<Integer, Prodotto>{
             ps.setDouble(1,item.getPrezzo());
             ps.setInt(2,item.getQuantita());
             result = ps.executeUpdate();
+            connection.commit();
         }finally {
             try {
                 if (ps != null)

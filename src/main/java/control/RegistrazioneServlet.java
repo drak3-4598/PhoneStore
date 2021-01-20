@@ -29,8 +29,8 @@ public class RegistrazioneServlet extends HttpServlet {
         String indirizzo = request.getParameter("indirizzo");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        DriverManagerConnectionPool dmcp = (DriverManagerConnectionPool)getServletContext().getAttribute("DriverManager");
-        UtenteModel utenteModel = new UtenteModel(dmcp);
+
+        UtenteModel utenteModel = new UtenteModel();
 
         try {
             Utente utente = new Utente();
