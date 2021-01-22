@@ -14,23 +14,20 @@
 <body>
 
 <%@include file="nav.jsp"%>
-<div class="card" style="width: 18rem; margin: auto; float: none; margin-bottom: 10px;margin-top: 10px;">
-    <form action="Aggiunta" method="post">
+<div class="card" style="width: 18rem; margin: auto; float: none; margin-bottom: 20px;margin-top: 20px;">
+
         <fieldset>
-
-
             <img class="card-img-top" src="https://www.curryflow.com/wp-content/uploads/2020/05/admin-icon-png-14.png-2.jpeg" alt="Card image cap">
             <div class="card-body">
 
                 <h5 class="card-title" style="text-align: center">Benvenuto Admin</h5>
                 <p class="card-text" style="text-align: center">Cosa desideri fare?</p>
                 <a href="AggiungiProdotto.jsp" class="btn btn-primary">Aggiungere prodotto</a><br>
-                <a href="EliminaProdotto.jsp" class="btn btn-primary">Eliminare il prodotto</a><br>
-                <a href="#" class="btn btn-primary">Modifica prodotto</a><br>
+                <a href="GestioneProdotto.jsp" class="btn btn-primary">Gestire Prodotti</a><br>
                 <a href="EliminaUtente.jsp" class="btn btn-primary">Elimina utente</a><br>
             </div>
         </fieldset>
-    </form>
+
 </div>
 <%@include file="footer.jsp"%>
 </body>

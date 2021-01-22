@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.Prodotto" %><%--
   Created by IntelliJ IDEA.
   User: dadea
   Date: 20/01/2021
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<%@include file="nav.jsp"%>
 
 </body>
 </html>

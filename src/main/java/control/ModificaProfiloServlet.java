@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -23,15 +24,16 @@ public class ModificaProfiloServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         UtenteModel utenteModel = new UtenteModel();
-        Utente u = (Utente) request.getSession().getAttribute("utente");
+        HttpSession session = request.getSession();
+        Utente u = (Utente) session.getAttribute("utente");
 
         if( u!=null){
-            u.setNome(nome);
-            u.setCognome(cognome);
-            u.setIndirizzo(indirizzo);
-            u.setEmail(email);
-            u.setPassword(password);
             try {
+                u.setNome(nome);
+                u.setCognome(cognome);
+                u.setIndirizzo(indirizzo);
+                u.setEmail(email);
+                u.setPassword(password);
                 utenteModel.doUpdate(u);
                 RequestDispatcher d = getServletContext().getRequestDispatcher("/index.jsp");
                 d.forward(request, response);

@@ -170,7 +170,7 @@ public class UtenteModel implements DAOInterface<String,Utente> {
         Connection connection = null;
         PreparedStatement ps = null;
         int result = 0;
-        String updateSQL = "UPDATE Utente SET" + "nome = ?, cognome = ?, indirizzo = ?, email = ?, password = ?";
+        String updateSQL = "UPDATE" + UtenteModel.TABLE_NAME + "SET" + "nome = ?, cognome = ?, indirizzo = ?, email = ?, password = ?";
 
         try {
             connection = dmcp.getConnection();

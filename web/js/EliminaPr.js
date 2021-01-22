@@ -9,7 +9,9 @@ function constractCard(obj){
     let prezzo = $('<td id="prezzo">&euro;')
     let qt = $('<td id="qt">')
     let container = $('<td>')
+    let container1 = $('<td>')
     let btn = $('<button class="btn btn-primary btn-sm">Elimina</button>')
+    let edit = $('<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Edit</button>')
 
     $(codice).html(obj.codiceTel)
     $(marca).html(obj.marca)
@@ -19,6 +21,9 @@ function constractCard(obj){
     $(qt).html(obj.quantita)
     $(btn).attr("id",obj.codiceTel)
     $(btn).click(listener)
+    $(edit).attr("id",obj.codiceTel)
+    $(edit).click(editing)
+
 
     $(tr).append(codice)
     $(tr).append(marca)
@@ -27,7 +32,10 @@ function constractCard(obj){
     $(tr).append(prezzo)
     $(tr).append(qt)
     $(container).append(btn)
+    $(container1).append(edit)
     $(tr).append(container)
+    $(tr).append(container1)
+
 
     return tr;
 
@@ -43,4 +51,14 @@ function listener(){
             $(tr).remove()
         })
     }
+}
+
+function editing(){
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+    })
+
 }

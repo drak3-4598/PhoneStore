@@ -10,6 +10,7 @@
 <html>
 <head>
     <%@include file="imports.jsp"%>
+    <title>PhoneStore.it -  Gestione Prodotti</title>
 </head>
 <body>
 <%@include file="nav.jsp"%>
@@ -26,16 +27,39 @@
                 <th>Prezzo</th>
                 <th>Quantità</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <!--Table head-->
         <!--Table body-->
         <tbody id="main">
 
+
         </tbody>
         <!--Table body-->
     </table>
     <!--Table-->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modifica Prodotto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal_body"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-primary">Salva le modifiche</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%@include file="footer.jsp"%>
