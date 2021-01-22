@@ -19,15 +19,6 @@ public class ModificaProdottoServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DriverManagerConnectionPool dmcp= (DriverManagerConnectionPool)getServletContext().getAttribute("DriverManager");
-        ProdottoModel prodotto = new ProdottoModel(dmcp);
-        Prodotto bean= new Prodotto();
-        bean.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-        bean.setQuantita(Integer.parseInt(request.getParameter("quantita")));
-        try {
-            prodotto.doUpdate(bean);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+
     }
 }

@@ -12,7 +12,7 @@ function constractCard(obj){
     $(email).html(obj.email)
     $(nome).html(obj.nome)
     $(cognome).html(obj.cognome)
-    $(btn).attr("email",obj.email)
+    $(btn).attr("id",obj.email)
     $(btn).click(listener)
 
 
@@ -29,11 +29,13 @@ function constractCard(obj){
 
 function listener(){
     let btn = this;
-    $.post("EliminaUtenteServlet",{email : this.email} , function () {
-        alert("Utente eliminato!")
-        let td = $(btn).parent()
-        let tr = $(td).parent()
-        console.log($(td), $(tr))
-        $(tr).remove()
-    })
+    var result = confirm("Desideri eliminare questo utente?")
+    if(result === true) {
+        $.post("EliminaUtenteServlet", {email: this.id}, function () {
+            let td = $(btn).parent()
+            let tr = $(td).parent()
+            $(tr).remove()
+
+        })
+    }
 }

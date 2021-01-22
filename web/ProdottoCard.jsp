@@ -49,12 +49,13 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+
                         <div class="modal-body">
-                            <p id="qt">Q.tà disponibile: <%c.getQuantita();%></p>
+                            <p id="qt">Q.tà disponibile:  <%c.getQuantita();%></p>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected> - Seleziona la quantità - </option>
-                                <option value="1"><%c.getQuantita();%></option>
                             </select>
+                            <p id="prezzo">Prezzo: <%c.getPrezzo();%>&euro;</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
@@ -69,8 +70,6 @@
     <!-- /.row -->
 
 </div>
-
-
 
 <%}
 } %>

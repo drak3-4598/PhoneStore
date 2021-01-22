@@ -50,14 +50,13 @@ public class UtenteModel implements DAOInterface<String,Utente> {
     public boolean doDelete(String key) throws SQLException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        int result;
+        int result = 0;
 
         String deleteSQL = "DELETE FROM " + UtenteModel.TABLE_NAME +" WHERE email = ?";
 
         try{
             connection = dmcp.getConnection();
             preparedStatement = connection.prepareStatement(deleteSQL);
-
             preparedStatement.setString(1, key);
             result = preparedStatement.executeUpdate();
             connection.commit();
@@ -181,7 +180,6 @@ public class UtenteModel implements DAOInterface<String,Utente> {
             ps.setString(3,item.getIndirizzo());
             ps.setString(4,item.getEmail());
             ps.setString(5,item.getPassword());
-
 
             result = ps.executeUpdate();
             connection.commit();

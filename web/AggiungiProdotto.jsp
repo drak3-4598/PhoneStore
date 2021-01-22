@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>PhoneStore </title>
+    <title>PhoneStore.it - Aggiungi prodotto </title>
     <%@include file="imports.jsp"%>
 </head>
 <body>
@@ -22,7 +22,7 @@
     <!-- Marca -->
     <input type="text" id="defaultContactFormName" class="form-control mb-4" name="marca" placeholder="Marca del prodotto">
     <!-- Nome -->
-    <input type="text" id="defaultContactFormName" class="form-control mb-4" name="nome" placeholder="Nome del prodotto">
+    <input type="text" id="defaultContactFormName1" class="form-control mb-4" name="nome" placeholder="Nome del prodotto">
     <!-- Descrizione -->
     <div class="form-group">
         <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="descrizione" placeholder="Descrizione"></textarea>
@@ -34,25 +34,6 @@
     <!-- Foto -->
     <input type="url" name="foto" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Url dell'immagine">
 
-    <%
-        String erroreInserimentoProdotto = (String)request.getAttribute("error");
-        if(erroreInserimentoProdotto!=null){
-    %>
-    <span class="errore"><%=erroreInserimentoProdotto%></span><br/>
-    <%
-        }
-    %>
-    <%
-        String completamentoProdotto = (String)request.getSession().getAttribute("add");
-        if(completamentoProdotto!=null){
-    %>
-    <span class="successo"><%=completamentoProdotto%></span><br/>
-    <%
-            request.getSession().setAttribute("completamentoProdotto",null);
-        }
-
-    %>
-
 
     <!-- Send button -->
     <input class="btn btn-info btn-block" id = "btn" type="submit"></input>
@@ -62,7 +43,8 @@
 <!--Aggiungere script per evitare inserimenti errati-->
 <script>
     $("#btn").submit(function (event) {
-        alert("we strunz volevi!!")
+        var result = confirm("Vuoi aggiungere questo prodotto?")
+        if(result === true)
         event.preventDefault()
         return false
     })

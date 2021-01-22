@@ -51,7 +51,7 @@
         <li class="nav-item  dropdown mr-1">
             <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">Il mio Account</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="">Profilo</a>
+                <a class="dropdown-item" href="Profilo.jsp">Profilo</a>
                 <a class="dropdown-item" href="">I miei ordini</a>
                 <a class="dropdown-item" href="LogoutServlet">Logout</a>
             </div>

@@ -6,7 +6,7 @@ function constractCard(obj){
     let marca = $('<td id="marca">')
     let nome = $('<td id="nome">')
     let descrizione = $('<td id="descrizione">')
-    let prezzo = $('<td id="prezzo">')
+    let prezzo = $('<td id="prezzo">&euro;')
     let qt = $('<td id="qt">')
     let container = $('<td>')
     let btn = $('<button class="btn btn-primary btn-sm">Elimina</button>')
@@ -19,7 +19,6 @@ function constractCard(obj){
     $(qt).html(obj.quantita)
     $(btn).attr("id",obj.codiceTel)
     $(btn).click(listener)
-
 
     $(tr).append(codice)
     $(tr).append(marca)
@@ -36,11 +35,12 @@ function constractCard(obj){
 
 function listener(){
     let btn = this;
-    $.post("EliminaProdottoServlet",{codiceTel : this.id} , function () {
-        alert("Prodotto eliminato!")
-        let td = $(btn).parent()
-        let tr = $(td).parent()
-        console.log($(td), $(tr))
-        $(tr).remove()
-    })
+    var result = confirm("Desideri eliminare questo prodotto?")
+    if(result === true) {
+        $.post("EliminaProdottoServlet", {codiceTel: this.id}, function () {
+            let td = $(btn).parent()
+            let tr = $(td).parent()
+            $(tr).remove()
+        })
+    }
 }

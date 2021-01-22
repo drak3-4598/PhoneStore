@@ -7,7 +7,6 @@ function constractCard(obj){
     let img = $('<img class="img-fluid rounded mb-3 mb-md-0"></img>')
     let div = $(' <div class="col-md-5">')
     let h2 = $('<h2>')
-    let h3 = $('<h3>')
     let h1 = $('<h1 class="my-4">')
     let p = $('<p>')
     let btn = $(' <button type="button" class="btn btn-primary mb-2 ripple-surface" data-toggle="modal" data-target="#exampleModal">Visualizza</button>')
@@ -21,30 +20,32 @@ function constractCard(obj){
     let modalbody = $('<div class="modal-body">')
     let select = $('<select class="form-select" aria-label="Default select example">')
     let option = $('<option selected> - Seleziona la quantità - </option>')
-    let option2 = $('<option value="1"></option>')
     let modalfooter = $('<div class="modal-footer">')
     let modalbtnclose = $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>')
     let modaladd = $('<button type="button" class="btn btn-primary" ><i class="fas fa-shopping-cart"></i> Aggiungi al carrello</button>')
-    let p1 = $('<p id="qt">Q.tà disponibile:</p>')
+    let p1 = $('<p id="qt">Q.tà disponibile: </p>')
+    let p2 = $('<p id="prezz">Prezzo: </p>')
+    let h3 = $('<h3>')
 
     /*Append Modal*/
     $(modalH5).html(obj.nome)
     $(p1).html(obj.quantita)
-
+    $(p2).html(obj.prezzo)
 
     $(select).append(option)
-
 
     $(modalhead).append(modalH5)
     $(modalhead).append(modalclose)
 
     $(modalbody).append(p1)
+    $(modalbody).append(p2)
     $(modalbody).append(select)
 
     $(modalfooter).append(modalbtnclose)
     $(modalfooter).append(modaladd)
 
     $(modalcont).append(modalhead)
+    $(modalcont).append(h3)
     $(modalcont).append(modalbody)
     $(modalcont).append(modalfooter)
 

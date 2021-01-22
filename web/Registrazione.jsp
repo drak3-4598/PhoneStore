@@ -12,7 +12,7 @@
     <%@include file="imports.jsp"%>
 
     <script src="js/validation.js"></script>
-    <title>Phone Store- Registrazione</title>
+    <title>Phone Store.it - Registrazione</title>
 
 </head>
 <body>
@@ -54,7 +54,7 @@
     </small>
 
     <!-- Sign in button -->
-    <button class="btn btn-dark-green btn-block my-4" type="submit">Sign in</button>
+    <button class="btn btn-dark-green btn-block my-4" type="submit">Registrati</button>
 
 
 </form>
