@@ -24,7 +24,7 @@ function constractCard(obj){
     let modalbtnclose = $('<button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>')
     let modaladd = $('<button type="button" class="btn btn-primary" ><i class="fas fa-shopping-cart"></i> Aggiungi al carrello</button>')
     let p1 = $('<p id="qt">Q.tà disponibile: </p>')
-    let p2 = $('<p id="prezz">Prezzo: </p>')
+    let p2 = $('<p id="prezzo">Prezzo: </p>')
     let h3 = $('<h3>')
 
     /*Append Modal*/

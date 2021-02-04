@@ -23,7 +23,7 @@
 
 %>
     <p>
-        Ricerca Per Categoria
+
     </p>
 
 <%
@@ -33,7 +33,7 @@
 
         %>
 <p>
-    Ricerca Per Chiave
+
 </p>
 
 

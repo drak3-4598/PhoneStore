@@ -11,7 +11,9 @@ function constractCard(obj){
     let container = $('<td>')
     let container1 = $('<td>')
     let btn = $('<button class="btn btn-primary btn-sm">Elimina</button>')
-    let edit = $('<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Edit</button>')
+
+    let edit = $('<button class="btn btn-primary btn-sm" id="submit" data-toggle="modal" data-target="#exampleModal">Edit</button>')
+
 
     $(codice).html(obj.codiceTel)
     $(marca).html(obj.marca)
@@ -21,6 +23,7 @@ function constractCard(obj){
     $(qt).html(obj.quantita)
     $(btn).attr("id",obj.codiceTel)
     $(btn).click(listener)
+
     $(edit).attr("id",obj.codiceTel)
     $(edit).click(editing)
 
@@ -53,12 +56,58 @@ function listener(){
     }
 }
 
-function editing(){
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
+$('#exampleModal').on('hidden.bs.modal', function (e) {
+    $('.modal-body').empty()
+})
 
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
+var tr;
+
+function editing(){
+
+    tr = $(this).parent().parent()
+
+    $.get("ModificaProdottoServlet", {codiceTel: this.id}, function (obj){
+
+        let m = $('<input type = "text" class="form-control" name = "marca">')
+        let n = $('<input type = "text" class="form-control" name = "nome">')
+        let d = $('<input type = "text" class="form-control" name = "descrizione">')
+        let p = $('<input type = "text" class="form-control" name = "prezzo">')
+        let q = $('<input type = "text" class="form-control" name = "qt">')
+
+        $(m).val(obj.marca)
+        $(n).val(obj.nome)
+        $(d).val(obj.descrizione)
+        $(p).val(obj.prezzo)
+        $(q).val(obj.quantita)
+
+        $(".modal-body").append(m)
+        $(".modal-body").append(n)
+        $(".modal-body").append(d)
+        $(".modal-body").append(p)
+        $(".modal-body").append(q)
+        $(".modal-body").append(f)
+
     })
 
 }
+
+$('#save').click(function () {
+
+    var marca = $('.modal-body #marca')
+    var nome = $('.modal-body #nome')
+    var descrizione = $('.modal-body #descrizione')
+    var prezzo =  $('.modal-body #marca')
+    var qt = $('.modal-body #qt')
+
+    var obj = {update : "true", marca : marca, nome : nome, descrizione : descrizione, prezzo : prezzo, qt : qt }
+
+    $.get("ModificaProdottoServlet",obj, function (){
+
+        $(tr).empty()
+        constractCard(obj)
+
+
+    })
+
+})
+

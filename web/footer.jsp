@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
 
     <!-- Footer -->
-    <footer class="page-footer font-small black pt-4 footer">
+    <footer class="page-footer font-small black pt-4 footer" >
 
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">

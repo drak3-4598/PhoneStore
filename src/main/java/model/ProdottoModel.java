@@ -212,13 +212,16 @@ public class ProdottoModel implements DAOInterface<Integer, Prodotto>{
     public synchronized boolean doUpdate(Prodotto item) throws SQLException {
         Connection connection= null;
         PreparedStatement ps= null;
-        String updateSQL= "UPDATE "+ ProdottoModel.TABLE_NAME + " SET "+ " prezzo=?, quantita=?";
+        String updateSQL= "UPDATE "+ ProdottoModel.TABLE_NAME + " SET "+ " marca = ?, nome = ?, descrizione = ?, prezzo=?, quantita=?";
         int result=0;
         try{
             connection= dmcp.getConnection();
             ps=connection.prepareStatement(updateSQL);
-            ps.setDouble(1,item.getPrezzo());
-            ps.setInt(2,item.getQuantita());
+            ps.setString(1, item.getMarca());
+            ps.setString(2,item.getNome());
+            ps.setString(3,item.getDescrizione());
+            ps.setDouble(4,item.getPrezzo());
+            ps.setInt(5,item.getQuantita());
             result = ps.executeUpdate();
             connection.commit();
         }finally {

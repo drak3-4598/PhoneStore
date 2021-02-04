@@ -10,7 +10,7 @@
 <html>
 <head>
     <%@include file="imports.jsp"%>
-    <title>PhoneStore.it -  Gestione Prodotti</title>
+    <title>PhoneStore.it - Gestione Prodotti</title>
 </head>
 <body>
 <%@include file="nav.jsp"%>
@@ -52,11 +52,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p id="modal_body"></p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-primary">Salva le modifiche</button>
+                <button type="button" id="save" class="btn btn-primary">Salva le modifiche</button>
             </div>
         </div>
     </div>
