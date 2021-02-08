@@ -39,31 +39,7 @@
                 Visualizza
             </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-side modal-top-right" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"><%c.getNome();%></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
 
-                        <div class="modal-body">
-                            <p id="qt">Q.tà disponibile:  <%c.getQuantita();%></p>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected> - Seleziona la quantità - </option>
-                            </select>
-                            <p id="prezzo">Prezzo: <%c.getPrezzo();%>&euro;</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                            <button type="button" class="btn btn-primary" ><i class="fas fa-shopping-cart"></i> Aggiungi al carrello</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>

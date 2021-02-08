@@ -16,6 +16,10 @@ public class Prodotto {
     public Prodotto() {
     }
 
+    public Prodotto(int id){
+        this.codiceTel = id;
+    }
+
     public Prodotto(int codiceTel, String marca,String nome, String descrizione, double prezzo, int quantita, List<Categoria> categorie, String foto) {
         this.codiceTel = codiceTel;
         this.marca = marca;

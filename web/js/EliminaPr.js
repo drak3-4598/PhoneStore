@@ -70,7 +70,7 @@ function editing(){
 
         let m = $('<input type = "text" class="form-control" name = "marca">')
         let n = $('<input type = "text" class="form-control" name = "nome">')
-        let d = $('<input type = "text" class="form-control" name = "descrizione">')
+        let d = $('<textarea cols="40" row="20" class="form-control" name = "descrizione">')
         let p = $('<input type = "text" class="form-control" name = "prezzo">')
         let q = $('<input type = "text" class="form-control" name = "qt">')
 
@@ -85,7 +85,7 @@ function editing(){
         $(".modal-body").append(d)
         $(".modal-body").append(p)
         $(".modal-body").append(q)
-        $(".modal-body").append(f)
+
 
     })
 
@@ -105,6 +105,7 @@ $('#save').click(function () {
 
         $(tr).empty()
         constractCard(obj)
+
 
 
     })

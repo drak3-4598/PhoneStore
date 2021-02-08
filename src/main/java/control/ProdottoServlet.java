@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+
 public class ProdottoServlet extends HttpServlet {
 
     private final ProdottoModel prodottoModel = new ProdottoModel();
