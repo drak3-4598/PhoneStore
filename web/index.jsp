@@ -22,12 +22,18 @@
       </div>
 
       <div class="modal-body">
-        <p>
-          Seleziona la quantità: <select id="qt">
 
-          </select>
-        </p>
-        <p id="prezzo">Prezzo:  &euro;</p>
+        <table>
+          <tr>
+            <td>Seleziona la quantità</td>
+            <td><select id="qt"></select></td>
+          </tr>
+          <tr>
+            <td>Prezzo: </td>
+            <td id="prezzo">&euro;</td>
+          </tr>
+        </table>
+
         <input type="hidden" id="codiceTel">
       </div>
       <div class="modal-footer">

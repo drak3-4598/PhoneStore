@@ -6,13 +6,17 @@ import java.util.HashMap;
 public class Carrello {
 
     public Carrello() {
-        ordine = new HashMap<Prodotto, Integer>();
+        ordine = new HashMap<Prodotto, Integer>(); //Integer si riferisce al codice fattura
     }
 
-    private HashMap<Prodotto, Integer> ordine;
+    public HashMap<Prodotto, Integer> getOrdine() {
+        return ordine;
+    }
 
-
-    /*public double prezzoTotale(){
+    public void setOrdine(HashMap<Prodotto, Integer> ordine) {
+        this.ordine = ordine;
+    }
+/*public double prezzoTotale(){
         return this.ordine.parallelStream().map((e)->{return e.prezzoTotale();}).reduce((double) 0, (sum, current) -> sum + current);
     }*/
 
@@ -32,6 +36,6 @@ public class Carrello {
         if(ordine.get(p)!=null)
             ordine.replace(p,qt);
 
-
     }
+    private HashMap<Prodotto, Integer> ordine;
 }
