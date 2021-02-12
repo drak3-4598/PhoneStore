@@ -1,30 +1,48 @@
 package model;
 
 public class Ordine {
+    private int cod_fat;
+    private Prodotto cod_prod;
+    private int qt;
 
-    private Fattura f;
-    private Prodotto p;
-
-    public Ordine(){}
-
-    public Ordine(Fattura f, Prodotto p) {
-        this.f = f;
-        this.p = p;
+    public Ordine(int cod_fat, Prodotto cod_prod, int qt) {
+        this.cod_fat = cod_fat;
+        this.cod_prod = cod_prod;
+        this.qt = qt;
     }
 
-    public Fattura getF() {
-        return f;
+    public Ordine(Prodotto cod_prod, int qt){
+        this.cod_prod = cod_prod;
+        this.qt = qt;
     }
 
-    public void setF(Fattura f) {
-        this.f = f;
+    public Ordine() {
+
     }
 
-    public Prodotto getP() {
-        return p;
+    public int getCod_fat() {
+        return cod_fat;
     }
 
-    public void setP(Prodotto p) {
-        this.p = p;
+    public void setCod_fat(int cod_fat) {
+        this.cod_fat = cod_fat;
     }
+
+    public Prodotto getCod_prod() {
+        return cod_prod;
+    }
+
+    public void setCod_prod(Prodotto cod_prod) {
+        this.cod_prod = cod_prod;
+    }
+
+    public int getQt() {
+        return qt;
+    }
+
+    public void setQt(int qt) {
+        this.qt = qt;
+    }
+
+
 }

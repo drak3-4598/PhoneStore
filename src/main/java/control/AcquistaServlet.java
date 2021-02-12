@@ -21,11 +21,7 @@ public class AcquistaServlet extends HttpServlet {
         if(session.getAttribute("utente")!=null){
             Carrello c = (Carrello) session.getAttribute("carrello");
             if(c != null ? c.count() > 0 : false){
-                try {
-                    model.doSave(c);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
+
             }
         }
     }

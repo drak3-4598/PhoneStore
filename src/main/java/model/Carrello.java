@@ -3,7 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class Carrello {
+
+    private HashMap<Prodotto, Integer> ordine = new HashMap<Prodotto, Integer>();
 
     public Carrello() {
         ordine = new HashMap<Prodotto, Integer>(); //Integer si riferisce al codice fattura
@@ -16,9 +19,7 @@ public class Carrello {
     public void setOrdine(HashMap<Prodotto, Integer> ordine) {
         this.ordine = ordine;
     }
-/*public double prezzoTotale(){
-        return this.ordine.parallelStream().map((e)->{return e.prezzoTotale();}).reduce((double) 0, (sum, current) -> sum + current);
-    }*/
+
 
     public int count(){
         return ordine.size();
@@ -32,10 +33,11 @@ public class Carrello {
         ordine.remove(p);
     }
 
-    public void modifyOrder(Prodotto p, int qt){
-        if(ordine.get(p)!=null)
-            ordine.replace(p,qt);
+    public void modifyOrder(Prodotto p, int qt) {
+        if (ordine.get(p) != null)
+            ordine.replace(p, qt);
 
     }
-    private HashMap<Prodotto, Integer> ordine;
+
+
 }

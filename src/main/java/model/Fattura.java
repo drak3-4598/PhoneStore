@@ -1,20 +1,22 @@
 package model;
 
 import java.sql.Date;
-import java.util.Calendar;
+
 
 public class Fattura {
 
     private int codice;
     private Date data;
     private Utente utente;
+    private Carrello carrello;
 
     public Fattura(){}
 
-    public Fattura(int codice, Date data, Utente utente) {
+    public Fattura(int codice, Date data, Utente utente, Carrello carrello) {
         this.codice = codice;
         this.data = data;
         this.utente = utente;
+        this.carrello = carrello;
     }
 
     public int getCodice() {
@@ -39,5 +41,13 @@ public class Fattura {
 
     public void setUtente(Utente utente) {
         this.utente = utente;
+    }
+
+    public Carrello getCarrello() {
+        return carrello;
+    }
+
+    public void setCarrello(Carrello carrello) {
+        this.carrello = carrello;
     }
 }

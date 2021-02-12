@@ -63,7 +63,7 @@ $('#exampleModal').on('hidden.bs.modal', function (e){
 
 $("#add").click(function (){
 
-    $.post("AsyncCartServlet",{op : add, codiceTel: $("#codiceTel").val(), qt : $("#qt").val()}, function (){
+    $.post("AsyncCartServlet",{op : "add", codiceTel: $("#codiceTel").val(), qt : $("#qt").val()}, function (){
         $("#exampleModal").modal("hide")
     })
 })
