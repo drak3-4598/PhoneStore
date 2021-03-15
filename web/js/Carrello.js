@@ -63,6 +63,9 @@ $(".remove").click(function (){
 
         $('#totale').html("€" + totale.toFixed(2))
 
+
+
+
     })
 })
 
@@ -76,9 +79,12 @@ $(".checkout").click(function (){
 
     today = dd + '/' + mm + '/' + yyyy;
 
+
+
+
     $.post("AsyncCartServlet", {op : "checkout", today : today}, function (){ })
 
-    alert("Grazie per l'acquisto!")
+
 
 
 

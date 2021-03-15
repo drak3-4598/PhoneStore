@@ -4,11 +4,11 @@
     <%@include file="imports.jsp"%>
     <title>PhoneStore.it - Login</title>
 </head>
-<body>
+<body style="background-image : url('https://pixabay.com/get/ge19fe9f2f54a40ee5b7277a46ad3112fed44ad9a3f410381540f0983ff3505122e1af0569a64e8746a57015991d16c6b_1920.jpg')">
 <%@include file="nav.jsp"%>
 
 <!-- Default form login -->
-<div class="container mt-4 mb-auto" id="verticale">
+<div class="container mt-4 mb-auto d-flex justify-content-center" id="verticale" >
 <form class="text-center border border-dark p-5" action="LoginServlet" method="post">
 
     <p class="h4 mb-4">Entra</p>

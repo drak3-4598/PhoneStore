@@ -47,7 +47,7 @@
 
 
 
-<%@include file = "footer.jsp" %>
+<%@include file = "footer2.jsp" %>
 <script src="js/add.js"></script>
 <script>$.getJSON("prova", function (json) {
 

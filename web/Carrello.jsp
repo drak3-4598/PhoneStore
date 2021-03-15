@@ -54,13 +54,14 @@
                 <tr id="<%=p.getCodiceTel()%>">
                     <td class="col-sm-8 col-md-6" >
                         <div class="media" >
-                            <a class="thumbnail pull-left" href = "#" > <img class="media-object" src = "<%=entry.getKey().getFoto()%>" style = "width: 72px; height: 72px;" > </a >
+                            <a class="thumbnail pull-left" href = "#" > <img class="media-object" src = "<%=entry.getKey().getFoto()%>" style = "width: 50px; height: 100px;" > </a >
                             <div class="media-body" >
                                 <h4 class="media-heading" ><a href = "#" > <%=entry.getKey().getNome()%></a ></h4 >
                                 <h5 class="media-heading" > by <a href = "#" > <%=entry.getKey().getMarca()%></a ></h5 >
                                 <span > Status: </span ><span class="text-success" ><strong > In Stock</strong ></span >
                             </div >
-                        </div ></td >
+                        </div >
+                    </td >
                     <td class="col-sm-1 col-md-1" style = "text-align: center" >
                         <input type = "number" class="form-control quantity " value = "<%=i%>" >
                     </td >
@@ -81,6 +82,18 @@
                 </tr>
 
                <% } else { %>
+
+                <tr>
+                    <td id="msg"><h4><strong>Il carrello è vuoto! Aggiungi un prodotto...</strong></h4></td>
+                </tr>
+
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td><h3>Totale</h3></td>
+                    <td  class="text-right"><h3><strong>&euro; 0.00</strong></h3></td>
+                </tr>
 
 
 

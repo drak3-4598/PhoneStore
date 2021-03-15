@@ -32,8 +32,8 @@
         <tr>
             <th></th>
             <th></th>
-            <th>></th>
-            <th>Age</th>
+            <th></th>
+            <th></th>
         </tr>
         </tbody>
         <!--Table body-->
