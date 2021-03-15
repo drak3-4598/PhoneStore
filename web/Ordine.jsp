@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.Fattura" %><%--
   Created by IntelliJ IDEA.
   User: dadea
   Date: 09/02/2021
@@ -14,14 +14,14 @@
 <body>
 <%@include file="nav.jsp"%>
 <!--Table-->
+<%Fattura fattura = (Fattura) session.getAttribute("fattura");%>
 <div class="container-fluid mt-4 mb mb-auto">
     <table id="tablePreview" class="table table-sm table-bordered">
         <!--Table head-->
         <thead class="thead-dark">
         <tr>
-            <th>#</th>
+            <th>#Codice Fattura</th>
             <th>Codice Telefono</th>
-            <th>Codice Fattura</th>
             <th>Nome Telefono</th>
             <th>Quantità</th>
         </tr>
@@ -29,8 +29,12 @@
         <!--Table head-->
         <!--Table body-->
         <tbody id="main">
-
-
+        <tr>
+            <th></th>
+            <th></th>
+            <th>></th>
+            <th>Age</th>
+        </tr>
         </tbody>
         <!--Table body-->
     </table>

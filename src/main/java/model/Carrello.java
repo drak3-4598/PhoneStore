@@ -1,15 +1,15 @@
 package model;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 
 public class Carrello {
 
-    private HashMap<Prodotto, Integer> ordine = new HashMap<Prodotto, Integer>();
+    private HashMap<Prodotto, Integer> ordine;
 
     public Carrello() {
-        ordine = new HashMap<Prodotto, Integer>(); //Integer si riferisce al codice fattura
+        ordine = new HashMap<>(); //Integer si riferisce al codice fattura
     }
 
     public HashMap<Prodotto, Integer> getOrdine() {
@@ -30,7 +30,9 @@ public class Carrello {
     }
 
     public void removeOrder(Prodotto p){
-        ordine.remove(p);
+        if(count() > 1) {
+            ordine.remove(p);
+        }else ordine.clear();
     }
 
     public void modifyOrder(Prodotto p, int qt) {
@@ -38,6 +40,10 @@ public class Carrello {
             ordine.replace(p, qt);
 
     }
+
+
+
+
 
 
 }

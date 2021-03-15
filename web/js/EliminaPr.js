@@ -6,14 +6,13 @@ function constractCard(obj){
     let marca = $('<td id="marca">')
     let nome = $('<td id="nome">')
     let descrizione = $('<td id="descrizione">')
-    let prezzo = $('<td id="prezzo">&euro;')
+    let prezzo = $('<td id="prezzo">&euro;</td>')
     let qt = $('<td id="qt">')
     let container = $('<td>')
     let container1 = $('<td>')
     let btn = $('<button class="btn btn-primary btn-sm">Elimina</button>')
 
     let edit = $('<button class="btn btn-primary btn-sm" id="submit" data-toggle="modal" data-target="#exampleModal">Edit</button>')
-
 
     $(codice).html(obj.codiceTel)
     $(marca).html(obj.marca)
@@ -94,12 +93,18 @@ function editing(){
 $('#save').click(function () {
 
     var marca = $('.modal-body #marca')
+    console.log(marca)
     var nome = $('.modal-body #nome')
+    console.log(nome)
     var descrizione = $('.modal-body #descrizione')
-    var prezzo =  $('.modal-body #marca')
+    console.log(descrizione)
+    var prezzo =  $('.modal-body #prezzo')
+    console.log(prezzo)
     var qt = $('.modal-body #qt')
+    console.log(qt)
 
     var obj = {update : "true", marca : marca, nome : nome, descrizione : descrizione, prezzo : prezzo, qt : qt }
+    console.log(obj)
 
     $.get("ModificaProdottoServlet",obj, function (){
 

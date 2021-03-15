@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <td>Prezzo: </td>
-            <td id="prezzo">&euro;</td>
+            <td id="prezzo"></td>
           </tr>
         </table>
 

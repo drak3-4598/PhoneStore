@@ -96,29 +96,19 @@ public class Prodotto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Prodotto prodotto = (Prodotto) o;
-        return codiceTel == prodotto.codiceTel &&
-                Double.compare(prodotto.prezzo, prezzo) == 0 &&
-                quantita == prodotto.quantita &&
-                Objects.equals(marca, prodotto.marca) &&
-                Objects.equals(descrizione, prodotto.descrizione) &&
-                Objects.equals(categorie, prodotto.categorie);
+        System.out.println(codiceTel == prodotto.codiceTel);
+        return codiceTel == prodotto.codiceTel;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codiceTel, marca, descrizione, prezzo, quantita, categorie);
+        return Objects.hash(codiceTel);
     }
 
     @Override
     public String toString() {
-        return "Prodotto{" +
-                "codiceTel=" + codiceTel +
-                ", marca='" + marca + '\'' +
-                ", nome="+ nome+ '\'' +
-                ", descrizione='" + descrizione + '\'' +
-                ", prezzo=" + prezzo +
-                ", quantita=" + quantita +
-                ", categorie=" + categorie +
-                '}';
+        return
+                "codiceTel=" + codiceTel ;
+
     }
 }

@@ -93,11 +93,13 @@ public class ProdottoModel implements DAOInterface<Integer, Prodotto>{
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
+                p.setCodiceTel(key);
                 p.setMarca(rs.getString(2));
                 p.setNome(rs.getString(3));
                 p.setDescrizione(rs.getString(4));
                 p.setPrezzo(rs.getDouble(5));
                 p.setQuantita(rs.getInt(6));
+                p.setFoto(rs.getString(7));
 
             }
         }finally {

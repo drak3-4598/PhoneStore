@@ -45,7 +45,7 @@ $('#exampleModal').on('show.bs.modal', function (e){
             $("#qt").append('<option value="'+i+'">'+i+'</option>')
         }
         $(".modal-title").append(obj.nome)
-        $("#prezzo").append(obj.prezzo)
+        $("#prezzo").append("€" + obj.prezzo.toFixed(2))
         $("#codiceTel").val(codiceTel)
 
     })
@@ -66,4 +66,7 @@ $("#add").click(function (){
     $.post("AsyncCartServlet",{op : "add", codiceTel: $("#codiceTel").val(), qt : $("#qt").val()}, function (){
         $("#exampleModal").modal("hide")
     })
+
+
+    alert("Il prodotto è stato aggiunto!")
 })
