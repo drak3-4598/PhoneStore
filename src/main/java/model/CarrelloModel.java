@@ -9,8 +9,6 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
 
     private DriverManagerConnectionPool dmcp;
 
-    public CarrelloModel(){}
-
     public CarrelloModel(DriverManagerConnectionPool dmcp) {
         this.dmcp = dmcp;
 
@@ -20,12 +18,13 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
     private static final String TABLE_NAME = "Fattura";
     private static final String TABLE_NAME2 = "Ordine";
 
+    public CarrelloModel(){ dmcp=DriverManagerConnectionPool.getIstance();}
 
     @Override
     public void doSave(Fattura item) throws SQLException {
-        //per salvare prima bisogna creare la fattura, poi le righe nella tabella degli ordini
+
         Connection connection = null;
-        PreparedStatement ps = null, ps1 = null;
+        PreparedStatement ps, ps1;
 
         String insertSQL = " INSERT INTO " + CarrelloModel.TABLE_NAME + " (data_fattura, codiceUtente) VALUES (?,?)";
         String insert = "INSERT INTO " + CarrelloModel.TABLE_NAME2 + " (codiceTel, codiceFattura, quantita, prezzo) VALUES (?,?,?,?)";
@@ -37,7 +36,7 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
 
 
             ps.setDate(2, item.getData());
-            ps.setInt(3, item.getUtente());
+            ps.setInt(3,item.getUtente());
             ps.executeUpdate();
             connection.commit();
 
@@ -62,8 +61,8 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
                 }
             }
 
-            if (ps1 != null)
-                ps.close();
+            if (ps != null) ps.close();
+            if(ps1 != null) ps1.close();
         } finally {
             dmcp.releaseConnection(connection);
         }
@@ -79,7 +78,7 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
         //prendere gli ordini che hanno come codice di fattura uguale a quello dell'input
 
         Connection connection = null;
-        PreparedStatement ps = null, ps1 = null;
+        PreparedStatement ps = null, ps1;
         Fattura f = null;
 
         String selectSQL = "SELECT FROM " + CarrelloModel.TABLE_NAME + " WHERE codiceFattura = ?";

@@ -58,24 +58,6 @@ public class AsyncCartServlet extends HttpServlet {
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
-            }else if("checkout".equals(op)){
-
-                Utente u = (Utente) session.getAttribute("utente");
-                Date today = Date.valueOf(request.getParameter("today"));
-
-
-                Fattura f = null;
-
-                f.setData(today);
-                f.setUtente(u.getCodiceUtente());
-
-                try {
-                    carrelloModel.doSave(f);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-
-
             }
         }
 

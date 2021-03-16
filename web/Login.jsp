@@ -4,7 +4,7 @@
     <%@include file="imports.jsp"%>
     <title>PhoneStore.it - Login</title>
 </head>
-<body style="background-image : url('https://pixabay.com/get/ge19fe9f2f54a40ee5b7277a46ad3112fed44ad9a3f410381540f0983ff3505122e1af0569a64e8746a57015991d16c6b_1920.jpg')">
+<body>
 <%@include file="nav.jsp"%>
 
 <!-- Default form login -->

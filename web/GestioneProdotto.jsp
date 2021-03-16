@@ -56,7 +56,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                <button type="button" id="save" class="btn btn-primary">Salva le modifiche</button>
+                <button type="button" class="btn btn-primary save">Salva le modifiche</button>
             </div>
         </div>
     </div>

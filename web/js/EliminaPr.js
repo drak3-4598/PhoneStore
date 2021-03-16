@@ -6,7 +6,7 @@ function constractCard(obj){
     let marca = $('<td id="marca">')
     let nome = $('<td id="nome">')
     let descrizione = $('<td id="descrizione">')
-    let prezzo = $('<td id="prezzo">&euro;</td>')
+    let prezzo = $('<td id="prezzo"></td>')
     let qt = $('<td id="qt">')
     let container = $('<td>')
     let container1 = $('<td>')
@@ -21,7 +21,7 @@ function constractCard(obj){
     $(prezzo).html(obj.prezzo)
     $(qt).html(obj.quantita)
     $(btn).attr("id",obj.codiceTel)
-    $(btn).click(listener)
+    $(btn).click(listener) //Bottone elimina
 
     $(edit).attr("id",obj.codiceTel)
     $(edit).click(editing)
@@ -90,7 +90,7 @@ function editing(){
 
 }
 
-$('#save').click(function () {
+$('.save').click(function () {
 
     var marca = $('.modal-body #marca')
     console.log(marca)

@@ -72,19 +72,7 @@ $(".remove").click(function (){
 $(".checkout").click(function (){
 
 
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0');
-    var yyyy = today.getFullYear();
-
-    today = dd + '/' + mm + '/' + yyyy;
-
-
-
-
-    $.post("AsyncCartServlet", {op : "checkout", today : today}, function (){ })
-
-
+    $.post("AcquistaServlet", function (){ })
 
 
 
