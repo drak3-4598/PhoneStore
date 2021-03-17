@@ -24,49 +24,83 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
     public void doSave(Fattura item) throws SQLException {
 
         Connection connection = null;
-        PreparedStatement ps, ps1;
+        PreparedStatement ps = null;
 
         String insertSQL = " INSERT INTO " + CarrelloModel.TABLE_NAME + " (data_fattura, codiceUtente) VALUES (?,?)";
-        String insert = "INSERT INTO " + CarrelloModel.TABLE_NAME2 + " (codiceTel, codiceFattura, quantita, prezzo) VALUES (?,?,?,?)";
 
         try {
             connection = dmcp.getConnection();
-            ps = connection.prepareStatement(insertSQL);
-            ps1 = connection.prepareStatement(insert);
+            ps = connection.prepareStatement(insertSQL, java.sql.Statement.RETURN_GENERATED_KEYS);
 
-
-            ps.setDate(2, item.getData());
-            ps.setInt(3,item.getUtente());
+            ps.setDate(1, item.getData());
+            ps.setString(2,item.getUtente());
             ps.executeUpdate();
             connection.commit();
 
-            ResultSet s = ps.getGeneratedKeys();  // prende il codice auto generato delle fattura
-            if (s.next()) {
-                HashMap<Prodotto, Integer> map = item.getCarrello().getOrdine();
-                Long idFatture = s.getLong(1); //si prende id della Fattura
+
+        } finally {
+            int id = 0;
+            ResultSet rs = ps.getGeneratedKeys();
+            if(rs.next()){
+                id = rs.getInt(1);
+            }
+            doSaveOrders(item.getCarrello(), id);
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+
+                dmcp.releaseConnection(connection);
+            }
+
+
+        }
+
+
+    }
+
+    private void doSaveOrders(Carrello c, int codiceFattura) throws SQLException {
+
+        Connection connection = null;
+        PreparedStatement ps = null;
+
+        String insert = "INSERT INTO " + CarrelloModel.TABLE_NAME2 + " (codiceFattura, codiceTel,  quantita, prezzo) VALUES (?,?,?,?)";
+
+        try{
+            connection = dmcp.getConnection();
+            ps = connection.prepareStatement(insert);
+
+
+            // prende il codice auto generato delle fattura
+            if (codiceFattura != 0) {
+                HashMap<Prodotto, Integer> map = c.getOrdine();
+
 
                 for (Map.Entry<Prodotto, Integer> entry : map.entrySet()) {
                     //chiave è il prodotto
                     int pId = entry.getKey().getCodiceTel(); //chiave del telefono
                     int pqt = entry.getValue(); // qt del prodotto
-                    double pPrice = entry.getValue(); //prezzo del prodotto
+                    double pPrice = entry.getKey().getPrezzo(); //prezzo del prodotto
 
-                    ps1.setLong(1,idFatture);
-                    ps1.setInt(2,pId);
-                    ps1.setInt(3,pqt);
-                    ps1.setDouble(4,pPrice);
-                    ps1.executeUpdate();
+                    ps.setLong(1, codiceFattura);
+                    ps.setInt(2, pId);
+                    ps.setInt(3, pqt);
+                    ps.setDouble(4, pPrice);
+                    ps.executeUpdate();
                     connection.commit();
 
                 }
             }
-
-            if (ps != null) ps.close();
-            if(ps1 != null) ps1.close();
-        } finally {
-            dmcp.releaseConnection(connection);
+        }finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                dmcp.releaseConnection(connection);
+            }
         }
     }
+
 
     @Override
     public boolean doDelete(Integer key) throws SQLException {
@@ -98,7 +132,8 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
                 ps1.setInt(1,rs.getInt(1)); //codiceFattura nella tabella Ordine
                 ResultSet rs1 = ps1.executeQuery();
                 Utente u =  utenteModel.doRetrieveByKey(rs.getString(3));
-                int codiceUtente = u.getCodiceUtente();
+                //int codiceUtente = u.getCodiceUtente();
+                String email = u.getEmail();
                 Date data = rs.getDate(2);
                 int id = rs.getInt(1);
                 while(rs1.next()){
@@ -107,7 +142,7 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
                     c.addOrder(p,qt);
                 }
 
-                f = new Fattura(id,data,codiceUtente,c);
+                f = new Fattura(id,data,email,c);
             }
         }finally {
             try {
@@ -164,7 +199,7 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
                     c.addOrder(p,qt);
                 }
 
-                fatture.add(new Fattura(id,data,u.getCodiceUtente(),c));
+                fatture.add(new Fattura(id,data,u.getEmail(),c));
 
             }
         }finally {
@@ -182,6 +217,9 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
 
 
     }
+
+
+
 
     ProdottoModel model = new ProdottoModel();
     UtenteModel utenteModel = new UtenteModel();

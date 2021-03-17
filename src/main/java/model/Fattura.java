@@ -7,12 +7,12 @@ public class Fattura {
 
     private int codice;
     private Date data;
-    private int utente;
+    private String utente;
     private Carrello carrello;
 
     public Fattura(){}
 
-    public Fattura(int codice, Date data, int utente, Carrello carrello) {
+    public Fattura(int codice, Date data, String utente, Carrello carrello) {
         this.codice = codice;
         this.data = data;
         this.utente = utente;
@@ -37,11 +37,11 @@ public class Fattura {
         this.data = data;
     }
 
-    public int getUtente() {
+    public String getUtente() {
         return utente;
     }
 
-    public void setUtente(int utente) {
+    public void setUtente(String utente) {
         this.utente = utente;
     }
 

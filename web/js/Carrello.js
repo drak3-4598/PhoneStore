@@ -71,10 +71,9 @@ $(".remove").click(function (){
 
 $(".checkout").click(function (){
 
-
-    $.post("AcquistaServlet", function (){ })
-
-
+    $.post("AcquistaServlet", function (){
+        window.location.href = 'checkout.jsp'
+    })
 
 })
 
