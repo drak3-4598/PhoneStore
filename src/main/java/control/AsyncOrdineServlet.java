@@ -1,6 +1,7 @@
 package control;
 
 import com.google.gson.GsonBuilder;
+import json.JsonBuilderFattura;
 import model.CarrelloModel;
 import model.Fattura;
 import model.Utente;
@@ -15,26 +16,30 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "AsyncOrdineServlet")
+@WebServlet("/AsyncOrdineServlet")
 public class AsyncOrdineServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    CarrelloModel model = new CarrelloModel();
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("utente");
 
-        CarrelloModel model = new CarrelloModel();
+        ArrayList<Fattura> lista = null;
 
-        try{
-            ArrayList<Fattura> lista = model.doRetrieveAll(u);
 
+        try {
+            lista = model.doRetrieveAll(u);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
 
+        response.setContentType("application/json");
+        response.getWriter().write(new GsonBuilder().registerTypeAdapter(Fattura.class, new JsonBuilderFattura()).create().toJson(lista));
+
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
 }

@@ -18,7 +18,7 @@ function constractCard(obj){
     $(marca).html(obj.marca)
     $(nome).html(obj.nome)
     $(descrizione).html(obj.descrizione)
-    $(prezzo).html(obj.prezzo)
+    $(prezzo).html("€" + obj.prezzo.toFixed(2))
     $(qt).html(obj.quantita)
     $(btn).attr("id",obj.codiceTel)
     $(btn).click(listener) //Bottone elimina
@@ -103,7 +103,7 @@ $('.save').click(function () {
     var qt = $('.modal-body #qt')
     console.log(qt)
 
-    var obj = {update : "true", marca : marca, nome : nome, descrizione : descrizione, prezzo : prezzo, qt : qt }
+    var obj = {update : "true",  marca : marca, nome : nome, descrizione : descrizione, prezzo : prezzo, qt : qt }
     console.log(obj)
 
     $.get("ModificaProdottoServlet",obj, function (){

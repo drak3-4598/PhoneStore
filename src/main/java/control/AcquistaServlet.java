@@ -23,19 +23,24 @@ public class AcquistaServlet extends HttpServlet {
 
     CarrelloModel model = new CarrelloModel();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         Utente u = (Utente) session.getAttribute("utente");
 
-        String email = u.getEmail();
+        if(session.getAttribute("admin") != null) {
+            response.sendError(404);
+            return;
+        }
 
         Fattura f = new Fattura();
         java.sql.Date timeNow = new Date(Calendar.getInstance().getTimeInMillis());
 
 
-        if(session.getAttribute("admin") == null && u!=null){
+        if(u!=null){
 
+            String email = u.getEmail();
             Carrello c = (Carrello) session.getAttribute("carrello");
+
             if(c!=null ? c.count() > 0 : false){
 
                 f.setCarrello(c);
@@ -44,23 +49,16 @@ public class AcquistaServlet extends HttpServlet {
 
                 try {
                     model.doSave(f);
-
                     session.setAttribute("fattura", f);
-                    response.sendRedirect("index.jsp");
-
-
 
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
-
-
             }
-
-
-
-        }
+        }else response.sendRedirect("login.jsp");
     }
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {

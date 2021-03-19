@@ -16,7 +16,7 @@
 </head>
 <body>
 <%@include file="nav.jsp"%>
-<div class="container mt-4" id="verticale" >
+<div class="container mt-4 d-flex justify-content-center" id="verticale" >
 <!-- Default form register -->
     <%if(request.getAttribute("Error")!=null){ %>
     <div class="alert alert-success" role="alert">

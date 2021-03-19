@@ -40,17 +40,19 @@
 
 </form>
 </div>
+
+<!-- Default form contact -->
+<%@include file="footer.jsp"%>
+
 <!--Aggiungere script per evitare inserimenti errati-->
 <script>
     $("#btn").submit(function (event) {
         var result = confirm("Vuoi aggiungere questo prodotto?")
         if(result === true)
-        event.preventDefault()
+            event.preventDefault()
         return false
     })
 </script>
-<!-- Default form contact -->
-<%@include file="footer.jsp"%>
 </body>
 
 </html>

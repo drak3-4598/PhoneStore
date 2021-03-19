@@ -63,7 +63,7 @@
                         </div >
                     </td >
                     <td class="col-sm-1 col-md-1" style = "text-align: center" >
-                        <input type = "number" class="form-control quantity " value = "<%=i%>" >
+                        <input type = "number" class="form-control quantity " value = "<%=i%>" min="1" max="<%=p.getQuantita()%>"> <!--Quantità-->
                     </td >
                     <td class="col-sm-1 col-md-1 text-center" ><strong > &euro;<%=entry.getKey().getPrezzo()%> </strong ></td >
                     <td class="col-sm-1 col-md-1 text-center" ><strong id="parziale">&euro;<%=parziale%></strong ></td >

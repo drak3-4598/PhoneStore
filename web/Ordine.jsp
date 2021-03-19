@@ -14,27 +14,21 @@
 <body>
 <%@include file="nav.jsp"%>
 <!--Table-->
-<%Fattura fattura = (Fattura) session.getAttribute("fattura");%>
 <div class="container-fluid mt-4 mb mb-auto">
     <table id="tablePreview" class="table table-sm table-bordered">
         <!--Table head-->
         <thead class="thead-dark">
         <tr>
             <th>#Codice Fattura</th>
-            <th>Codice Telefono</th>
             <th>Nome Telefono</th>
             <th>Quantità</th>
+            <th>Prezzo</th>
         </tr>
         </thead>
         <!--Table head-->
         <!--Table body-->
-        <tbody id="main">
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+        <tbody id="ordine">
+
         </tbody>
         <!--Table body-->
     </table>
@@ -44,4 +38,17 @@
 
 </body>
 <%@include file="footer.jsp"%>
+<script src="js/ordine.js"></script>
+<script>$.getJSON("AsyncOrdineServlet", function (json) {
+
+            console.log(json)
+            $.each(json, function() {
+                $("#ordine").append(constractCard(this))
+
+            })
+    })
+
+
+
+</script>
 </html>

@@ -169,12 +169,12 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
     public ArrayList<Fattura> doRetrieveAll(Utente u) throws SQLException {
 
         Connection connection = null;
-        PreparedStatement ps = null, ps1 = null;
+        PreparedStatement ps = null, ps1;
 
-        ArrayList<Fattura> fatture = null;
+        ArrayList<Fattura> fatture;
 
-        String selectSQL = "SELECT FROM " + CarrelloModel.TABLE_NAME + " WHERE codiceUtente = ?";
-        String select = "SELECT FROM " + CarrelloModel.TABLE_NAME2 + " WHERE  codiceFattura = ?";
+        String selectSQL = "SELECT * FROM " + CarrelloModel.TABLE_NAME + " WHERE codiceUtente = ?";
+        String select = "SELECT * FROM " + CarrelloModel.TABLE_NAME2 + " WHERE  codiceFattura = ?";
 
 
         try {
@@ -182,7 +182,7 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
             ps = connection.prepareStatement(selectSQL);
             ps1 = connection.prepareStatement(select);
 
-            ps.setInt(1, u.getCodiceUtente());
+            ps.setString(1, u.getEmail());
             ResultSet rs = ps.executeQuery();
 
             Carrello c = new Carrello();
