@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 String errore="Email o password ";
                 request.setAttribute("errore", errore);
+                request.setAttribute("warning", new Boolean (true));
                 RequestDispatcher d = getServletContext().getRequestDispatcher("/Login.jsp");
                 d.forward(request, response);
             }

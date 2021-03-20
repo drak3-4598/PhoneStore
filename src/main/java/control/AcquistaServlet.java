@@ -55,7 +55,7 @@ public class AcquistaServlet extends HttpServlet {
                     throwables.printStackTrace();
                 }
             }
-        }else response.sendRedirect("login.jsp");
+        }else response.sendRedirect("Login.jsp");
     }
 
 

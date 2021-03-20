@@ -11,10 +11,9 @@ function constractCard(obj){
 
     for(let i of list){
         $(nomePr).html(i.nome)
+        $(qt).html(i.qt)
+        $(prezzo).html("€" + i.prezzoUni.toFixed(2))
     }
-
-
-
 
     $(codiceFattura).html(id)
 

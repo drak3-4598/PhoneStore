@@ -1,6 +1,5 @@
 package control;
 
-import model.DriverManagerConnectionPool;
 import model.Utente;
 import model.UtenteModel;
 
@@ -48,7 +47,7 @@ public class RegistrazioneServlet extends HttpServlet {
 
         }catch (SQLIntegrityConstraintViolationException e)
         {  e.printStackTrace();
-            request.setAttribute("Error",new Boolean(true));
+            request.setAttribute("Error", Boolean.TRUE);
 
         }catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -57,7 +56,7 @@ public class RegistrazioneServlet extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         response.setContentType("text/plain");
 
