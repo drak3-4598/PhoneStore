@@ -236,4 +236,31 @@ public class ProdottoModel implements DAOInterface<Integer, Prodotto>{
             }
         return (result != 0);
         }
+
+        public boolean doUpdateQty(Prodotto item, int qt) throws SQLException {
+            Connection connection = null;
+            PreparedStatement ps = null;
+            String updateSQL = "UPDATE " + ProdottoModel.TABLE_NAME +  " SET " + " quantita = quantita - ? " + " WHERE codiceTel =  ? and quantita > 0 ";
+
+            int result=0;
+            try{
+                connection= dmcp.getConnection();
+                ps=connection.prepareStatement(updateSQL);
+                ps.setInt(2,item.getCodiceTel());
+                ps.setInt(1,qt);
+                result = ps.executeUpdate();
+                connection.commit();
+            }finally {
+                try {
+                    if (ps != null)
+                        ps.close();
+                } finally {
+                    dmcp.releaseConnection(connection);
+                }
+            }
+            return (result != 0);
+        }
+
+
+
 }

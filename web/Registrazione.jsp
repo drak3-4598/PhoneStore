@@ -51,7 +51,7 @@
 
         <!-- Password -->
         <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" pattern=".{8,}" required name="password" onfocus = "focuser(this.form.password)" onblur = "blurer(this.form.password)">
-        <div id= "passwordWarning" class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> <strong>Errore!</strong>la password non è valida, deve essere tra 8 e 25 caratteri</div>
+        <div id= "passwordWarning" class="alert"><span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> <strong>Errore!</strong>la password non è valida, deve essere tra 8 e 25 caratteri</div><br>
 
         <!-- Indirizzo -->
         <input type="text" id="address" class="form-control" placeholder="Indirizzo"  name="indirizzo"  required>

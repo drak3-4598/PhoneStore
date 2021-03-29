@@ -1,9 +1,6 @@
 package control;
 
-import model.Carrello;
-import model.CarrelloModel;
-import model.Fattura;
-import model.Utente;
+import model.*;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,11 +11,13 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Map;
 
 @WebServlet("/AcquistaServlet")
 public class AcquistaServlet extends HttpServlet {
 
     CarrelloModel model = new CarrelloModel();
+    ProdottoModel prodottoModel = new ProdottoModel();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
@@ -40,6 +39,7 @@ public class AcquistaServlet extends HttpServlet {
 
             if(c!=null ? c.count() > 0 : false){
 
+
                 f.setCarrello(c);
                 f.setUtente(email);
                 f.setData(timeNow);
@@ -48,6 +48,17 @@ public class AcquistaServlet extends HttpServlet {
                     model.doSave(f);
                     session.setAttribute("carrello", new Carrello());
                     response.sendRedirect("checkout.jsp");
+
+                    Prodotto p = null;
+                    int qt = 0;
+
+
+                    for(Map.Entry<Prodotto, Integer> entry : c.getOrdine().entrySet()) {
+                        p = entry.getKey();
+                        qt = entry.getValue();
+                    }
+
+                    prodottoModel.doUpdateQty(p,qt);
 
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();

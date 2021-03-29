@@ -8,6 +8,7 @@
 <body>
 
 <%@include file="nav.jsp"%>
+
 <div id="main" class="mb-2"></div>
 
 <!-- Modal -->

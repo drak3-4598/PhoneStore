@@ -65,7 +65,7 @@
         %>
         <ul class="navbar-nav">
             <li class="nav-item  dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">Il mio Account</a>
+                <a class="nav-link dropdown-toggle mr-4" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">Il mio Account</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="Admin.jsp">Operazioni</a>
                     <a class="dropdown-item" href="LogoutServlet">Logout</a>

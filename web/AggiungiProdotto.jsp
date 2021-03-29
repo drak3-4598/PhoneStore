@@ -15,7 +15,7 @@
 <%@include file="nav.jsp"%>
 <!-- Default form contact -->
 <div class="container mt-4 mb-auto">
-<form class="text-center border border-light p-5" action="addProduct" method="POST">
+<form class="text-center border border-dark p-5" action="addProduct" method="POST">
 
     <p class="h4 mb-4">Inserisci Prodotto</p>
 
