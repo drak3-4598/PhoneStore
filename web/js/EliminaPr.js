@@ -93,26 +93,23 @@ function editing(){
 $('.save').click(function () {
 
     var marca = $('.modal-body #marca')
-    console.log(marca)
+
     var nome = $('.modal-body #nome')
-    console.log(nome)
+
     var descrizione = $('.modal-body #descrizione')
-    console.log(descrizione)
+
     var prezzo =  $('.modal-body #prezzo')
-    console.log(prezzo)
+
     var qt = $('.modal-body #qt')
-    console.log(qt)
 
     var obj = {update : "true",  marca : marca, nome : nome, descrizione : descrizione, prezzo : prezzo, qt : qt }
-    console.log(obj)
+
 
     $.get("ModificaProdottoServlet",obj, function (){
 
         $(tr).empty()
         constractCard(obj)
-
-
-
+        
     })
 
 })

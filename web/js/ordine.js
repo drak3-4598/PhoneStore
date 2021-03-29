@@ -9,15 +9,24 @@ function constractCard(obj){
 
     let {id, list} = obj
 
-    for(let i of list){
-        $(nomePr).html(i.nome)
-        $(qt).html(i.qt)
-        $(prezzo).html("€" + i.prezzoUni.toFixed(2))
-    }
+    let prod = ""
+    let qt1 = ""
+    let price = ""
 
     $(codiceFattura).html(id)
-
     $(tr).append(codiceFattura)
+
+    for(let i of list){
+        prod += i.nome + "<br>"
+        qt1 += i.qt + "<br>"
+        price += "€" + i.prezzoUni.toFixed(2) + "<br>"
+    }
+
+    $(nomePr).html(prod)
+    $(qt).html(qt1)
+    $(prezzo).html(price)
+
+
     $(tr).append(nomePr)
     $(tr).append(qt)
     $(tr).append(prezzo)

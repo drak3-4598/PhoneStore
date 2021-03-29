@@ -43,7 +43,6 @@ $(".quantity").blur(function (){
 })
 
 
-
 $(".remove").click(function (){
 
 
@@ -69,14 +68,6 @@ $(".remove").click(function (){
     })
 })
 
-$(".checkout").click(function (){
 
-
-
-    $.post("AcquistaServlet", function (){
-        window.location.href = 'checkout.jsp'
-    })
-
-})
 
 

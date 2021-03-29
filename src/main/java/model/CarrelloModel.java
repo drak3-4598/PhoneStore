@@ -137,8 +137,8 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
                 Date data = rs.getDate(2);
                 int id = rs.getInt(1);
                 while(rs1.next()){
-                   Prodotto p = model.doRetrieveByKey(rs1.getInt(2));
-                   int qt = rs1.getInt(3);
+                    Prodotto p = model.doRetrieveByKey(rs1.getInt(2));
+                    int qt = rs1.getInt(3);
                     c.addOrder(p,qt);
                 }
 
@@ -156,6 +156,10 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
 
     }
 
+
+
+
+
     @Override
     public boolean doUpdate(Fattura item) throws SQLException {
         return false;
@@ -169,18 +173,18 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
     public ArrayList<Fattura> doRetrieveAll(Utente u) throws SQLException {
 
         Connection connection = null;
-        PreparedStatement ps = null, ps1;
+        PreparedStatement ps = null;
 
         ArrayList<Fattura> fatture;
 
         String selectSQL = "SELECT * FROM " + CarrelloModel.TABLE_NAME + " WHERE codiceUtente = ?";
-        String select = "SELECT * FROM " + CarrelloModel.TABLE_NAME2 + " WHERE  codiceFattura = ?";
+
 
 
         try {
             connection = dmcp.getConnection();
             ps = connection.prepareStatement(selectSQL);
-            ps1 = connection.prepareStatement(select);
+
 
             ps.setString(1, u.getEmail());
             ResultSet rs = ps.executeQuery();
@@ -189,15 +193,11 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
             fatture = new ArrayList<>();
 
             while(rs.next()){
-                ps1.setInt(1,rs.getInt(1));
-                ResultSet rs1 = ps1.executeQuery();
+
                 Date data = rs.getDate(2);
                 int id = rs.getInt(1);
-                while(rs1.next()){
-                    Prodotto p = model.doRetrieveByKey(rs1.getInt(2));
-                    int qt = rs1.getInt(3);
-                    c.addOrder(p,qt);
-                }
+
+                c = doRetrieveOrders(id);
 
                 fatture.add(new Fattura(id,data,u.getEmail(),c));
 
@@ -215,6 +215,43 @@ public class CarrelloModel implements DAOInterface<Integer,Fattura>{
         }return fatture;
 
 
+
+    }
+
+    private Carrello doRetrieveOrders(int fattura) throws SQLException {
+
+        Connection connection = null;
+        PreparedStatement ps = null;
+
+        String select = "SELECT * FROM " + CarrelloModel.TABLE_NAME2 + " WHERE  codiceFattura = ?";
+
+        Carrello c = new Carrello();
+
+        try{
+            connection = dmcp.getConnection();
+            ps = connection.prepareStatement(select);
+            ps.setInt(1,fattura);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Prodotto p = model.doRetrieveByKey(rs.getInt(2));
+                int qt = rs.getInt(3);
+                c.addOrder(p,qt);
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        } finally {
+            try {
+                if (ps != null)
+                    ps.close();
+            } finally {
+                dmcp.releaseConnection(connection);
+            }
+        }return c;
 
     }
 

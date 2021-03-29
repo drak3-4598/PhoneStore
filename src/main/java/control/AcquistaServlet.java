@@ -5,15 +5,12 @@ import model.CarrelloModel;
 import model.Fattura;
 import model.Utente;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -49,7 +46,8 @@ public class AcquistaServlet extends HttpServlet {
 
                 try {
                     model.doSave(f);
-                    session.setAttribute("fattura", f);
+                    session.setAttribute("carrello", new Carrello());
+                    response.sendRedirect("checkout.jsp");
 
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
@@ -58,14 +56,4 @@ public class AcquistaServlet extends HttpServlet {
         }else response.sendRedirect("Login.jsp");
     }
 
-
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        response.setContentType("text/plain");
-
-        out.write("Error: GET method is used but POST method is required");
-        out.close();
-    }
 }
