@@ -12,9 +12,10 @@
     <%@include file="imports.jsp"%>
 
     <title>PhoneStore.it - Registrazione</title>
+    <link rel="stylesheet" href="css/sfondo.css">
 
 </head>
-<body>
+<body id="s2">
 <%@include file="nav.jsp"%>
 <div class="container mt-4 d-flex justify-content-center" id="verticale" >
     <!-- Default form register -->
@@ -30,7 +31,7 @@
         </div>
         <%}%>
 
-        <p class="h4 mb-4">Sign up</p>
+        <p class="h4 mb-4" style="color: #4040a1">Sign up</p>
 
         <div class="form-row mb-4">
             <div class="col">
@@ -58,7 +59,7 @@
 
 
         <!-- Sign in button -->
-        <button class="btn btn-dark-green btn-block my-4" type="submit">Registrati</button>
+        <button class="btn btn-primary btn-block my-4" type="submit">Registrati</button>
 
 
     </form>

@@ -16,9 +16,10 @@
 <head>
     <title> Phone Store.it - Carrello</title>
     <%@include file="imports.jsp"%>
+    <link rel="stylesheet" href="css/sfondo.css">
     
 </head>
-<body>
+<body id="s3">
 <%@include file="nav.jsp"%>
 
 
@@ -85,15 +86,15 @@
                    <% } else { %>
 
                     <tr>
-                        <td id="msg"><h4><strong>Il carrello è vuoto! Aggiungi un prodotto...</strong></h4></td>
+                        <td id="msg"><h4><strong style="color: #4040a1">Il carrello è vuoto! Aggiungi un prodotto...</strong></h4></td>
                     </tr>
 
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h3>Totale</h3></td>
-                        <td  class="text-right"><h3><strong>&euro; 0.00</strong></h3></td>
+                        <td><h3><strong style="color: #4040a1">Totale</strong></h3></td>
+                        <td  class="text-right"><h3><strong style="color: #4040a1">&euro; 0.00</strong></h3></td>
                     </tr>
 
 
@@ -105,12 +106,12 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                            <button type="button" class="btn btn-default "  onclick="location.href='index.jsp'">
+                            <button type="button" class="btn btn-primary "  onclick="location.href='index.jsp'">
                                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                             </button></td>
                         <td>
 
-                            <button type="submit" class="btn btn-success checkout">
+                            <button type="submit" class="btn btn-primary checkout">
                                 Checkout <span class="glyphicon glyphicon-play"></span>
                             </button>
 
@@ -124,7 +125,7 @@
     </form>
 </div>
 
-<%@include file="footer.jsp"%>
+<%@include file="ftcart.jsp"%>
 <script src="js/Carrello.js"></script>
 
 </body>

@@ -27,7 +27,7 @@ h1{
     font-family: 'Kaushan Script', cursive;
     font-size:4em;
     letter-spacing:3px;
-    color:green ;
+    color:#4040a1 ;
     margin:0;
     margin-bottom:20px;
 }
@@ -40,7 +40,7 @@ h1{
 }
 .go-home{
     color:#fff;
-    background:green;
+    background:#4040a1;
     border:none;
     padding:10px 50px;
     margin:30px 0;
@@ -62,7 +62,7 @@ h1{
 }
 .footer-like p a{
     text-decoration:none;
-    color:green;
+    color:#4040a1;
     font-weight:600;
 }
 

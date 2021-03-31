@@ -16,10 +16,8 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
 
-<link rel="stylesheet" href="css/footer.css">
-
     <!-- Footer -->
-    <footer class="page-footer font-small black pt-4 footer fixed-bottom" >
+    <footer class="page-footer font-small pt-4 footer mt-auto fixed-bottom" style="background: #4040a1">
 
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">

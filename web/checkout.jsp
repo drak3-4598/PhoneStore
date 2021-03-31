@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/check.css">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
 
+
 </head>
 <body>
 <%@include file="nav.jsp"%>

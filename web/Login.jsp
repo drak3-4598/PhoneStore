@@ -3,8 +3,9 @@
 <head>
     <%@include file="imports.jsp"%>
     <title>PhoneStore.it - Login</title>
+    <link rel="stylesheet" href="css/sfondo.css">
 </head>
-<body>
+<body id="s1">
 <%@include file="nav.jsp"%>
 
 <!-- Default form login -->
@@ -18,7 +19,7 @@
         <%}
         %>
 
-        <p class="h4 mb-4">Entra</p>
+        <p class="h4 mb-4" style="color: #4040a1">Entra</p>
 
         <!-- Email -->
         <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
@@ -31,17 +32,19 @@
                 <!-- Remember me -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                    <label class="custom-control-label" for="defaultLoginFormRemember">Ricordami</label>
+                    <label class="custom-control-label" for="defaultLoginFormRemember"><strong style="color: white">Ricordami</strong></label>
                 </div>
             </div>
         </div>
 
         <!-- Sign in button -->
-        <button class="btn btn-dark-green btn-block my-4" type="submit">Entra</button>
+        <button class="btn btn-primary btn-block my-4" type="submit">Entra</button>
 
         <!-- Register -->
-        <p>Non hai un account?
-            <a href="Registrazione.jsp">Registrati</a>
+        <p style="color: white">
+            <strong>Non hai un account?
+                <a href="Registrazione.jsp">Registrati</a>
+            </strong>
         </p>
         <br>
         <br>

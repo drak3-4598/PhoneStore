@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vince
-  Date: 13/10/2020
-  Time: 12:37
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- jQuery -->
@@ -17,7 +10,7 @@
 <script type="text/javascript" src="js/mdb.min.js"></script>
 
 <!-- Footer -->
-<footer class="page-footer font-small pt-4 footer" style="background: #4040a1" >
+<footer class="page-footer font-small pt-4 footer mt-auto" style="background: #4040a1">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">

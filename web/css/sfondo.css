@@ -1,0 +1,31 @@
+#s3{
+    background-image: url("../img/sfondo3.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#s2{
+    background-image: url("../img/sfondo2.jpg");
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+#s1{
+    background-image: url("../img/sfondo1.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+}
